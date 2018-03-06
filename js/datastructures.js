@@ -52,3 +52,19 @@ var permutation = function(str1, str2){
   
   return true
 }
+
+/*
+URLify a given string (Replace spaces is %20)
+2.6
+Write a method to replace all the spaces in a string with ‘%20’. 
+You may assume that the string has sufficient space at the end to hold the additional characters, 
+and that you are given the “true” length of the string.
+
+*/
+
+var URLify = function(string){
+  var length = string.length,
+      newString = string.trim()
+  
+      return newString.split(" ").join("%20")
+}

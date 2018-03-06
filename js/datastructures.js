@@ -68,3 +68,37 @@ var URLify = function(string){
   
       return newString.split(" ").join("%20")
 }
+
+/*
+  Palindrome Permutation: Given a string, write a funtion to check if it is a permutation of a palindrome.
+  A palindrome is a word or phrase that is the same forwards and backwards. A permutation is a rearrangement of letters.
+  The palindrome does not need to be limited to just dictionary words.
+  Hints: #106, #121, #134, #136
+*/
+
+var palindromPermutation = function(str){
+  var newString = str.split(" ").join("")
+      length = newString.length,
+      strArr = newString.toLowerCase().split(""),
+      map = {};
+  
+  for(let i = 0; i < strArr.length; i++){
+        if(map[strArr[i]]){
+          map[strArr[i]] += 1;
+        } else {
+          map[strArr[i]] = 1;
+        }
+   }
+  
+ if(length%2 === 0){
+   var lengthTest = Object.values(map).filter( e => e%2 != 0)
+   
+   return lengthTest.length > 0 ? false : true
+
+ } else {
+   var lengthTest = Object.values(map).filter( e => e%2 != 0)
+   
+   return lengthTest.length > 0 ? true : false
+ }
+  
+}

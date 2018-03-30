@@ -153,3 +153,40 @@ var oneAway = function(string1, string2){
   }
   
 }
+
+/* matrix = [[T,T,T,T,T],
+             [x,x,T,x,x],
+             [x,x,T,x,x],
+             [x,x,T,x,x],
+             [x,x,T,x,x]
+            ]
+
+rotated = [[x,x,x,x,T],
+           [x,x,x,x,T],
+           [T,T,T,T,T],
+           [x,x,x,x,T],
+           [x,x,x,x,T]
+          ]
+
+Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image 
+by 90 degress.
+*/
+
+var rotateMatrix = function(matrix){
+  var matrixSize = matrix.length;
+      newMatrix = [];
+  
+  for(let x = 0; x < matrix.length; x++){
+     for(let j = 0; j < matrix[x].length; j++){
+       if(newMatrix[j]){
+         newMatrix[j].unshift(matrix[x][j])
+       } else {
+         newMatrix[j] = []
+
+         newMatrix[j].unshift(matrix[x][j])
+       }
+     }
+  }
+  return newMatrix
+}
+

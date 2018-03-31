@@ -190,3 +190,39 @@ var rotateMatrix = function(matrix){
   return newMatrix
 }
 
+
+/* Write an algo such that if an element in an MxN matrix is 0, it's entire row and column are set to 0 
+*/
+
+var zeroMatrix = function(matrix){
+  var map={},
+      locations = [];
+  
+  //map the 0s
+  for(let i = 0; i < matrix.length; i++ ){
+    map[i] = []
+    for(let j = 0; j<matrix[i].length; j++){
+      if(matrix[i][j] === 0){
+        map[i].push(j)
+      }
+    }
+  }
+  
+  // find the keys (rows of matrix that contain 0s)
+  for(let k = 0; k < Object.keys(map).length; k++){
+    if(map[Object.keys(map)[k]].length > 0){
+       let key = Object.keys(map)[k]
+       locations.push(map[key])
+       matrix[Object.keys(map)[k]] = matrix[Object.keys(map)[k]].map( e => 0) //makes the entire row 0
+    }
+  }
+  
+  locations = locations.join(',').split(',')
+  for(let l = 0; l < locations.length; l++)//get all the columns to 0
+  {
+    for(let m = 0; m < matrix.length; m++){
+      //go through the matrix columns to change the location that is 0
+    }
+  }
+  console.log(map)
+}

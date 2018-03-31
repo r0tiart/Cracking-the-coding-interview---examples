@@ -226,3 +226,34 @@ var zeroMatrix = function(matrix){
   }
   console.log(map)
 }
+
+/* assume you have a method isSubstring which checks if one word is a substring of another.
+Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call
+to isSubstring(eg. "waterbottle" is rotation of "erbottlewat")
+*/
+
+var stringRotation = function(str1, str2){
+  var str1Arr = str1.split(""),
+      str2Arr = str2.split(""),
+      hashMap = {};
+  
+  for(let i = 0; i < str1Arr.length; i++){
+    if(hashMap[str1Arr[i]]){
+      hashMap[str1Arr[i]] += 1;
+    } else {
+      hashMap[str1Arr[i]] = 1;
+    }
+  }
+  
+  for(let j = 0; j < str2Arr.length; j++){
+    if(hashMap[str2Arr[j]]){
+      hashMap[str2Arr[j]] -= 1;
+      if(hashMap[str2Arr[j]] < 0 ){
+        return false;
+      }
+    } else {
+      return false; 
+    }
+  }
+  return true;
+}

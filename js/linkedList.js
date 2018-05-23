@@ -15,3 +15,34 @@ function removeDup(linkedList, collection){
     node = node.next
   }
 }
+
+
+/* Find the kth from the last item in a linked list*/
+
+function kthToLast(k, linkedList, collection){ //this function returns the node at kth position from the last place
+  var node = collection[linkedList],
+      length = linkedListLength(linkedList, collection)
+      index = length - k - 1 // finds the position and converts it to an index (index starts at 0)
+
+  return nodeAt(index, linkedList, collection)
+
+}
+
+function linkedListLength(linkedList, collection){ //this function determines the length of a linked list
+  var node = collection[linkedList],
+      length = 1;
+
+  while(node.next){
+    length++
+    node = collection[node.next];
+  }
+  return length;
+}
+
+function nodeAt(index, linkedList, collection){ //this functions determines the node at an index
+	let node = collection[linkedList];
+	for (let i = 0; i < index; i++){
+		node = collection[node.next];
+	};
+	return node;
+};

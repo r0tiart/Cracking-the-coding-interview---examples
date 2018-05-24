@@ -1,5 +1,11 @@
 /* remove duplicates from a linked list */
 
+let collection = {rnadnm: {name: 'Alexandra', next: 'masjdrandm'},
+  masjdrandm: {name: 'Kirstin', next: 'ntrandm'},
+  ntrandm: {name: 'Juliet', next: null}
+}
+
+
 function removeDup(linkedList, collection){
   var node = collection[linkedList],
       map = {},
@@ -46,3 +52,19 @@ function nodeAt(index, linkedList, collection){ //this functions determines the 
 	};
 	return node;
 };
+
+
+/* delete the middle node given the node (not the last or the first)*/
+
+function deleteNode(collection, node){
+  if(node === null || node.next === null){
+    return false;
+  } else {
+    var nextNode = collection[node.next]
+  }
+
+  node.name = nextNode.name;
+  node.next = nextNode.next;
+
+  return true;
+}

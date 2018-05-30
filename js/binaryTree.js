@@ -53,3 +53,22 @@ function Delete(currentNode, deleteNode){
       }
    }
 }
+
+function max(node){
+	if(node.right){
+		return max(node.right)
+	} else {
+		return node
+	};
+};
+
+function min(node){
+	if(node.left){
+		return min(node.left)
+	} else {
+		return node
+	};
+};
+
+// to delete a item with two branche - might need to have int vs node(for delete that's why i started to convert find parent)
+// https://jsbin.com/kitahekowo/6/edit?js,console

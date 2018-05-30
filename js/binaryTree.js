@@ -36,5 +36,20 @@ function Delete(currentNode, deleteNode){
      } else {
        parent.left = null;
      }
+   }
+
+   if(!deleteNode.left){
+      if(deleteNode.data > parent.data){
+        parent.right = deleteNode.right;
+      } else {
+        parent.left = deleteNode.right;
+      }
+
+   } else if(!deleteNode.right){
+      if(deleteNode.data > parent.data){
+        parent.right = deleteNode.left;
+      } else {
+        parent.left = deleteNode.left;
+      }
    }   
 }

@@ -25,3 +25,16 @@ function findParent(currentNode, node){
    }
  }
 }
+
+
+function Delete(currentNode, deleteNode){
+   var parent = findParent(currentNode, deleteNode);
+
+   if(!deletNode.left && !deleteNode.right){
+     if(deleteNode.data > parent.data){
+       parent.right = null;
+     } else {
+       parent.left = null;
+     }
+   }   
+}

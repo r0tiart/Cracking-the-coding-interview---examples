@@ -4,24 +4,24 @@ let node = {data: 5, left:
                        right: {data: 9, left: null, right: null}
                      }}
 
-function findParent(currentNode, node){
- if(currentNode.data === node.date){
+function findParent(currentNode, int){
+ if(currentNode.data === int){
     return false;
  }
 
- if(node.data > currentNode.data){
-   if(currentNode.right.data === node.data){
+ if(int > currentNode.data){
+   if(currentNode.right.data === int){
      return currentNode;
    } else {
-     return findParent(currentNode.right, node)
+     return findParent(currentNode.right, int)
    }
  }
 
-   if(node.data < currentNode.data){
-   if(currentNode.left.data === node.data){
+   if(int < currentNode.data){
+   if(currentNode.left.data === int){
      return currentNode;
    } else {
-     return findParent(currentNode.left, node)
+     return findParent(currentNode.left, int)
    }
  }
 }
@@ -51,5 +51,5 @@ function Delete(currentNode, deleteNode){
       } else {
         parent.left = deleteNode.left;
       }
-   }   
+   }
 }

@@ -47,3 +47,30 @@ function reverse(str){
 };
 
 console.log(reverse("how's it going."));
+
+
+
+/* given an unsorted array, from 1-100, determine which number is missing */
+
+function missingNum(unsortedArr){
+  var sorted = unsortedArr.sort(), // I can do another function to sort it, so let's just assume I sorted it like earlier today)
+      missing = [];
+
+  for(let i = 1; i < sorted.length; i++){ // this goes through the array;
+
+    if(sorted[i] - sorted[i-1] !=1){
+
+      amountMissing = sorted[i] - sorted[i-1] - 1 //find missing and normalize with 1 (since it should consecutive)
+      while(amountMissing > 0){
+        missing.push(sorted[i] - amountMissing)
+        amountMissing--
+      }
+    }
+
+  }
+  console.log(missing)
+  return missing
+
+}
+
+missingNum([1,2,3,6,8])

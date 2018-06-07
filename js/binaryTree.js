@@ -70,5 +70,23 @@ function min(node){
 	};
 };
 
+function treeToArray(node, arr, i){
+
+  if (node === null) return i
+
+  if(node.left){
+     i = treeToArray(node.left, arr, i)
+  }
+
+  arr[i] = node.data;
+  i++;
+
+  if(node.right){
+     i = treeToArray(node.right, arr, i)
+  }
+
+  return i;
+}
+
 // to delete a item with two branche - might need to have int vs node(for delete that's why i started to convert find parent)
 // https://jsbin.com/kitahekowo/6/edit?js,console

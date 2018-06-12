@@ -89,4 +89,4 @@ function treeToArray(node, arr, i){
 }
 
 // to delete a item with two branche - might need to have int vs node(for delete that's why i started to convert find parent)
-// https://jsbin.com/kitahekowo/6/edit?js,console
+// https://jsbin.com/jaxesudisu/edit?js,console

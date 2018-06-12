@@ -74,3 +74,31 @@ function missingNum(unsortedArr){
 }
 
 missingNum([1,2,3,6,8])
+
+
+/* given a string determine if it is a valid function, all openers have closers
+ - ([{}]) = true ([)] = false
+*/
+
+function tester(str){ //test if a function is valid - being passed in as a string
+  var strArr = str.split("");
+  var opens = [];
+  var map = { ')' : '(',
+              ']' : '[',
+              '}' : '{'
+            }; //stores all open and closers
+
+
+  for(let i = 0; i < strArr.length; i++){ // go through each item in array
+
+      if('[({'.indexOf(strArr[i]) != -1){ //if it is open push it into array
+        opens.push(strArr[i])
+      } else if('])}'.indexOf(strArr[i]) != -1){ //if they are closers
+
+        if(map[strArr[i]] != opens.pop()){ //if the closer is not equal to the last open element return false;
+          return false;
+        }
+      }
+  }
+  return opens.length === 0; //if there are more openings then close return false
+}

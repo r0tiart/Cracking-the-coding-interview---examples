@@ -133,3 +133,42 @@ function tester(str){ //test if a function is valid - being passed in as a strin
 
   return opens.length === 0; //if there are more openings then close return false
 }
+
+/* anagram given two strings determine if they are anagrams */
+
+function anagram(str1, str2){
+  var map ={};
+
+
+    for(let i = 0; i < str1.length; i++){ //this loop maps the first string
+
+      if(map[str1.charAt(i)]){
+        map[str1.charAt(i)]++; //if it exists add 1
+      } else{
+        map[str1.charAt(i)] = 1; // if it doesn't exist create it in map and set it equal to 1
+      }
+
+    }
+
+    for(let j = 0; j < str2.length; j++){ //this tests string 2 onto string 1
+
+      if(map[str2.charAt(j)]){ //if the letter exists
+
+        if(map[str2.charAt(j)] > 0){ // test if there is an equal amount of letters between str1 and str2
+
+          map[str2.charAt(j)] --; //if it exists and still less then total count subtract
+
+        } else { //return false if there is a larger amount of the letter in str2 then str1.
+          return false;
+        }
+
+      } else { //return false if letter does not exist
+        return false;
+      }
+
+    }
+
+    return true; // after going completely looping through both strings return true
+
+
+}

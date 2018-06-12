@@ -139,7 +139,11 @@ function tester(str){ //test if a function is valid - being passed in as a strin
 function anagram(str1, str2){
   var map ={};
 
+  if(str1.length != str2.length){ //if strings aren't equal in length return false
+    return false;
+  }
 
+  if(str1.match(/^[A-Za-z]+$/) || str2.match(/^[A-Za-z]+$/)){ //test if strings are only letters
     for(let i = 0; i < str1.length; i++){ //this loop maps the first string
 
       if(map[str1.charAt(i)]){
@@ -170,5 +174,9 @@ function anagram(str1, str2){
 
     return true; // after going completely looping through both strings return true
 
+  } else {
 
+    return false; //returns false if it's not only letters
+  }
 }
+              

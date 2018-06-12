@@ -88,9 +88,36 @@ function tester(str){ //test if a function is valid - being passed in as a strin
               '}' : '{'
             }; //stores all open and closers
 
+  var notComment = true; //start off setting not comment to true
 
   for(let i = 0; i < strArr.length; i++){ // go through each item in array
 
+    if('/<'.indexOf(strArr[i]) != -1){ //if it matches any part of the comment opener
+      if('/!*'.indexOf(strArr[i+1]) != -1){
+
+        notComment = false; //set false so it will not run while loop
+      } //test next item to make sure its an actual comment opener
+    }else if('\n>*'.indexOf(strArr[i]) != -1){
+
+      if('*'.indexOf(strArr[i]) != -1){ //this test for multiline comment ender  */
+
+        if('/'.indexOf(strArr[i + 1]) != -1 ){ //test if it actually ended by looking at next item in array
+          notComment = true;
+        }
+
+      } else if('>'.indexOf(strArr[i]) != -1){ //test for ->
+
+        if('-'.indexOf(strArr[i - 1]) != -1){
+           notComment = true; //no longer comment
+        }
+      } else {
+        notComment = true;
+      }
+    }
+
+
+
+    if(notComment){ // run this loop if it isn't a comment
       if('[({'.indexOf(strArr[i]) != -1){ //if it is open push it into array
         opens.push(strArr[i])
       } else if('])}'.indexOf(strArr[i]) != -1){ //if they are closers
@@ -98,7 +125,11 @@ function tester(str){ //test if a function is valid - being passed in as a strin
         if(map[strArr[i]] != opens.pop()){ //if the closer is not equal to the last open element return false;
           return false;
         }
+
       }
+    }
   }
+
+
   return opens.length === 0; //if there are more openings then close return false
 }
